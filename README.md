@@ -1,12 +1,14 @@
 # NBA Spurs ETL Pipeline
 
+![alt text](image-1.png)
+
 Este proyecto implementa un pipeline completo de **Extracción, Carga y Transformación (ETL/ELT)** para datos de los *San Antonio Spurs*, usando una arquitectura moderna con:
 
 - **Apache Airflow** para orquestar el flujo (Bronze → Silver → Gold)  
 - **MinIO** como almacenamiento de archivos **Bronze** (JSON)  
 - **PostgreSQL** para la capa **Silver** (raw)  
 - **dbt** para transformaciones analíticas (capa **Gold**)  
-- (Opcional) **Superset** como capa de visualización BI
+- **Superset** como capa de visualización BI
 
 ---
 
