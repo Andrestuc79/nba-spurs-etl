@@ -1,0 +1,78 @@
+services:
+  minio:
+    image: quay.io/minio/minio
+    networks:
+      - airflow
+    command: server /data --console-address ":9090"
+    ports:
+      - "9000:9000"
+      - "9090:9090"
+    volumes:
+      - ${PWD}/include/minio:/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
+    env_file: .env
+
+  scheduler:
+    volumes:
+      - ./dbt:/usr/local/airflow/dbt
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - airflow
+
+  webserver:
+    volumes:
+      - ./dbt:/usr/local/airflow/dbt
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - airflow
+
+  triggerer:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - airflow
+
+  postgres:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - airflow
+
+  superset:
+    image: apache/superset:latest
+    container_name: superset
+    networks:
+      - airflow
+    environment:
+      - SUPERSET_SECRET_KEY=supersecret
+      #- PIP_ADDITIONAL_REQUIREMENTS=psycopg2-binary
+      - PIP_ADDITIONAL_REQUIREMENTS=psycopg2-binary==2.9.9
+     # - SUPERSET_CONFIG_PATH=/app/pythonpath/superset_config.py
+    ports:
+      - "8088:8088"
+    volumes:
+      - superset_home:/app/superset_home
+    command:
+      - sh
+      - -c
+      - |
+        superset db upgrade &&
+        superset fab create-admin \
+          --username admin \
+          --firstname Superset \
+          --lastname Admin \
+          --email admin@superset.com \
+          --password admin &&
+        superset init &&
+        superset run -h 0.0.0.0 -p 8088 --with-threads --reload --debug
+
+volumes:
+  superset_home:
+
+networks:
+  airflow:
+    external: true

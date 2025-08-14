@@ -1,0 +1,14 @@
+name: 'spurs_dbt'
+version: '1.0'
+config-version: 2
+
+profile: 'spurs_profile'
+
+model-paths: ['models']
+target-path: 'target'
+clean-targets: ['target', 'dbt_modules']
+
+models:
+    spurs_analysis:
+      materialized: table
+      schema: gold

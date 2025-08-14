@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: summary_by_season
+    description: >
+      Resumen por temporada de los San Antonio Spurs. Incluye partidos jugados,
+      ganados, perdidos y promedio de puntos por temporada.
+    columns:
+      - name: season
+        description: Temporada NBA (por ejemplo, 2022-23).
+        tests:
+          - not_null
+          - unique
+      - name: total_games
+        description: Cantidad total de partidos jugados.
+        tests:
+          - not_null
+      - name: wins
+        description: Partidos ganados.
+      - name: losses
+        description: Partidos perdidos.
+      - name: avg_points
+        description: Promedio de puntos por partido.
+
+  - name: home_vs_away
+    description: >
+      Comparación del rendimiento del equipo como local y visitante por temporada.
+    columns:
+      - name: season
+        description: Temporada NBA.
+        tests:
+          - not_null
+      - name: location
+        description: Local o Visitante.
+        tests:
+          - accepted_values:
+              values: ["Home", "Away"]
+      - name: games
+        description: Total de partidos en esa condición.
+      - name: wins
+        description: Partidos ganados.
+      - name: losses
+        description: Partidos perdidos.
+      - name: avg_points
+        description: Promedio de puntos anotados.
+
+  # name: top_players_by_metric
+   # description: >
+  #    Jugadores destacados por temporada en puntos, rebotes y asistencias.
+   # columns:
+   #   - name: season
+    #    description: Temporada NBA.
+   #   - name: top_scorer
+   #     description: Jugador con mayor promedio de puntos.
+    #  - name: top_rebounder
+   #     description: Jugador con mayor promedio de rebotes.
+   #   - name: top_assist
+   #     description: Jugador con mayor promedio de asistencias.
+
+  - name: team_weaknesses
+    description: >
+      Temporadas donde el equipo mostró debilidad por baja efectividad de campo
+      o muchas pérdidas de balón.
+    columns:
+      - name: season
+        description: Temporada NBA.
+      - name: avg_fg_pct
+        description: Promedio de porcentaje de tiros de campo.
+      - name: avg_turnovers
+        description: Promedio de pérdidas por partido.
