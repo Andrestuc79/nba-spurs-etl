@@ -41,6 +41,17 @@ Este proyecto implementa un pipeline completo de **Extracción, Carga y Transfor
    - Crear dashboards accesibles vía web
 
 ---
+###  Estructura del Repositorio
+
+nba-spurs-etl/
+├── dags/                      # Airflow DAGs (Bronze → Silver → Gold)
+├── dbt/                       # Proyecto dbt con modelos y configuraciones
+├── Dockerfile                 # Imagen personalizada con dbt instalado
+├── docker-compose.override.yml
+├── requirements.txt           # Python dependencies
+├── packages.txt               # Sistema adicional para Astronomer
+├── README.md
+└── .gitignore                 # Para evitar subir datos sensibles o auto-generados
 
 ###  Primeros pasos (Getting Started)
 
