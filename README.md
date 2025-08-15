@@ -6,14 +6,14 @@ Este proyecto implementa un pipeline completo de **Extracción, Carga y Transfor
 - **MinIO** como almacenamiento de archivos **Bronze** (JSON)  
 - **PostgreSQL** para la capa **Silver** (raw)  
 - **dbt** para transformaciones analíticas (capa **Gold**)  
-- (Opcional) **Superset** como capa de visualización BI
+- **Superset** como capa de visualización BI
 
 ---
 
 ###  Arquitectura general
 
 
-![alt text](image.png)
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/4f00bf66-7c8c-48e4-9737-d08477081744" />
 
 
 **Descripción del flujo**:
