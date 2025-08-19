@@ -8,5 +8,5 @@ spurs_profile:
       password: postgres
       port: 5432
       dbname: nba
-      schema: silver
+      schema: gold
       threads: 1

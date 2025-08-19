@@ -4,5 +4,11 @@ sources:
   - name: silver
     schema: silver
     tables:
-      - name: spurs_games
+      - name: games
+      - name: players
+      - name: teams 
+      - name: player_stats
+      - name: salaries
+      - name: free_agents
+      - name: injuries
       #- name: spurs_boxscores

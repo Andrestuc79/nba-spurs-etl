@@ -1,70 +1,155 @@
 version: 2
 
 models:
+  - name: team_weaknesses_unpivoted
+    description: >
+      Analiza y compara el rendimiento de los San Antonio Spurs por temporada en diversas métricas
+      (porcentaje de tiro, rebotes, robos, etc.) contra los promedios de la liga y los valores del mejor
+      equipo.
+    columns:
+      - name: season2
+        description: Temporada de la NBA (ej. 2024-25).
+        tests:
+          - not_null
+      - name: weakness_type
+        description: La categoría de la estadística analizada (ej. 'Porcentaje de tres').
+        tests:
+          - not_null
+      - name: valor_equipo
+        description: Valor promedio del equipo en la métrica.
+      - name: valor_liga
+        description: Valor promedio de la liga en la métrica.
+      - name: valor_mejor_equipo
+        description: Valor del mejor equipo en la métrica.
+      - name: resultado
+        description: Indica si la métrica es una 'Debilidad' o 'Fortaleza' en comparación con el promedio de la liga.
+        tests:
+          - accepted_values:
+              values: ['Debilidad', 'Fortaleza']
+
+  - name: players_recommendations
+    description: >
+      Sugiere jugadores potenciales para contratar en base a las debilidades del equipo
+      identificadas en el modelo `team_weaknesses_unpivoted`.
+    columns:
+      - name: season2
+        description: Temporada de la NBA.
+        tests:
+          - not_null
+      - name: weakness_type
+        description: El tipo de debilidad que el jugador recomendado podría ayudar a resolver.
+      - name: recommended_player
+        description: Nombre del jugador recomendado.
+        tests:
+          - not_null
+      - name: position
+        description: Posición principal del jugador.
+      - name: metric_value
+        description: Valor del jugador en la métrica asociada a la debilidad.
+      - name: salary
+        description: Salario anual estimado del jugador en USD.
+      - name: reason
+        description: Justificación de por qué se recomienda al jugador.
+      - name: player_id
+        description: Identificador único del jugador.
+        tests:
+          - not_null
+      - name: is_free_agent
+        description: Booleano que indica si el jugador es un agente libre.
+      - name: is_injured
+        description: Booleano que indica si el jugador está actualmente lesionado.
+
   - name: summary_by_season
     description: >
-      Resumen por temporada de los San Antonio Spurs. Incluye partidos jugados,
-      ganados, perdidos y promedio de puntos por temporada.
+      Proporciona un resumen del rendimiento de los San Antonio Spurs por temporada,
+      incluyendo victorias, derrotas, partidos totales, promedio de puntos y el ranking
+      del equipo dentro de la liga.
     columns:
       - name: season
-        description: Temporada NBA (por ejemplo, 2022-23).
+        description: Temporada de la NBA (ej. 2024-25).
         tests:
           - not_null
-          - unique
-      - name: total_games
-        description: Cantidad total de partidos jugados.
-        tests:
-          - not_null
+      - name: team_name
+        description: Nombre del equipo.
       - name: wins
-        description: Partidos ganados.
+        description: Número total de victorias en la temporada.
       - name: losses
-        description: Partidos perdidos.
+        description: Número total de derrotas en la temporada.
+      - name: total_games
+        description: Número total de partidos jugados en la temporada.
       - name: avg_points
-        description: Promedio de puntos por partido.
+        description: Promedio de puntos anotados por partido.
+      - name: team_ranking
+        description: El ranking del equipo en la liga basado en victorias y derrotas.
+        tests:
+          - not_null
+
+  - name: streaks_and_rivals
+    description: >
+      Calcula las rachas de victorias y derrotas más largas del equipo,
+      así como sus victorias y derrotas más amplias.
+    columns:
+      - name: best_winning_streak_season
+        description: Temporada en la que ocurrió la racha de victorias más larga.
+      - name: best_winning_streak_length
+        description: Duración de la racha de victorias más larga.
+      - name: worst_losing_streak_season
+        description: Temporada en la que ocurrió la racha de derrotas más larga.
+      - name: worst_losing_streak_length
+        description: Duración de la racha de derrotas más larga.
+      - name: biggest_win_season
+        description: Temporada en la que ocurrió la victoria con mayor margen de puntos.
+      - name: team_beat_by_most
+        description: Nombre del equipo al que se le ganó con mayor margen.
+      - name: biggest_win_margin
+        description: Margen de puntos de la mayor victoria.
+      - name: biggest_loss_season
+        description: Temporada en la que ocurrió la derrota con mayor margen de puntos.
+      - name: team_lost_to_by_most
+        description: Nombre del equipo contra el que se perdió con mayor margen.
+      - name: biggest_loss_margin
+        description: Margen de puntos de la mayor derrota.
+
+  - name: spurs_player_contributions_unpivoted
+    description: >
+      Muestra la contribución de cada jugador de los San Antonio Spurs
+      en diferentes métricas clave, como el porcentaje de tiro, rebotes y robos,
+      en un formato desnormalizado.
+    columns:
+      - name: player_id
+        description: Identificador único del jugador.
+        tests:
+          - not_null
+      - name: player_name
+        description: Nombre del jugador.
+        tests:
+          - not_null
+      - name: rubro
+        description: La categoría de la estadística (ej. 'Rebotes', 'Bloqueos').
+        tests:
+          - not_null
+      - name: valor
+        description: Valor promedio del jugador en la métrica especificada.
 
   - name: home_vs_away
     description: >
-      Comparación del rendimiento del equipo como local y visitante por temporada.
+      Analiza el rendimiento de los San Antonio Spurs en partidos jugados como
+      local (Home) vs. partidos como visitante (Away).
     columns:
       - name: season
-        description: Temporada NBA.
-        tests:
-          - not_null
+        description: Temporada de la NBA (ej. 2024-25).
+      - name: team_name
+        description: Nombre del equipo.
       - name: location
-        description: Local o Visitante.
+        description: La ubicación del partido, 'Home' o 'Away'.
         tests:
           - accepted_values:
-              values: ["Home", "Away"]
+              values: ['Home', 'Away']
       - name: games
-        description: Total de partidos en esa condición.
+        description: Número total de partidos jugados en esa ubicación.
       - name: wins
-        description: Partidos ganados.
+        description: Número de victorias en esa ubicación.
       - name: losses
-        description: Partidos perdidos.
+        description: Número de derrotas en esa ubicación.
       - name: avg_points
-        description: Promedio de puntos anotados.
-
-  # name: top_players_by_metric
-   # description: >
-  #    Jugadores destacados por temporada en puntos, rebotes y asistencias.
-   # columns:
-   #   - name: season
-    #    description: Temporada NBA.
-   #   - name: top_scorer
-   #     description: Jugador con mayor promedio de puntos.
-    #  - name: top_rebounder
-   #     description: Jugador con mayor promedio de rebotes.
-   #   - name: top_assist
-   #     description: Jugador con mayor promedio de asistencias.
-
-  - name: team_weaknesses
-    description: >
-      Temporadas donde el equipo mostró debilidad por baja efectividad de campo
-      o muchas pérdidas de balón.
-    columns:
-      - name: season
-        description: Temporada NBA.
-      - name: avg_fg_pct
-        description: Promedio de porcentaje de tiros de campo.
-      - name: avg_turnovers
-        description: Promedio de pérdidas por partido.
+        description: Promedio de puntos anotados por partido en esa ubicación.

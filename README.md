@@ -1,48 +1,51 @@
-Overview
-========
+# NBA Spurs ETL Pipeline
 
-Welcome to Astronomer! This project was generated after you ran 'astro dev init' using the Astronomer CLI. This readme describes the contents of the project, as well as how to run Apache Airflow on your local machine.
+Este proyecto implementa un pipeline completo de **Extracción, Carga y Transformación (ETL/ELT)** para datos de los *San Antonio Spurs*, usando una arquitectura moderna con:
 
-Project Contents
-================
+- **Apache Airflow** para orquestar el flujo (Bronze → Silver → Gold)  
+- **MinIO** como almacenamiento de archivos **Bronze** (JSON)  
+- **PostgreSQL** para la capa **Silver** (raw)  
+- **dbt** para transformaciones analíticas (capa **Gold**)  
+- (Opcional) **Superset** como capa de visualización BI
 
-Your Astro project contains the following files and folders:
+---
 
-- dags: This folder contains the Python files for your Airflow DAGs. By default, this directory includes one example DAG:
-    - `example_astronauts`: This DAG shows a simple ETL pipeline example that queries the list of astronauts currently in space from the Open Notify API and prints a statement for each astronaut. The DAG uses the TaskFlow API to define tasks in Python, and dynamic task mapping to dynamically print a statement for each astronaut. For more on how this DAG works, see our [Getting started tutorial](https://docs.astronomer.io/learn/get-started-with-airflow).
-- Dockerfile: This file contains a versioned Astro Runtime Docker image that provides a differentiated Airflow experience. If you want to execute other commands or overrides at runtime, specify them here.
-- include: This folder contains any additional files that you want to include as part of your project. It is empty by default.
-- packages.txt: Install OS-level packages needed for your project by adding them to this file. It is empty by default.
-- requirements.txt: Install Python packages needed for your project by adding them to this file. It is empty by default.
-- plugins: Add custom or community plugins for your project to this file. It is empty by default.
-- airflow_settings.yaml: Use this local-only file to specify Airflow Connections, Variables, and Pools instead of entering them in the Airflow UI as you develop DAGs in this project.
+###  Arquitectura general
 
-Deploy Your Project Locally
-===========================
 
-1. Start Airflow on your local machine by running 'astro dev start'.
+![alt text](image.png)
 
-This command will spin up 4 Docker containers on your machine, each for a different Airflow component:
 
-- Postgres: Airflow's Metadata Database
-- Webserver: The Airflow component responsible for rendering the Airflow UI
-- Scheduler: The Airflow component responsible for monitoring and triggering tasks
-- Triggerer: The Airflow component responsible for triggering deferred tasks
+**Descripción del flujo**:
 
-2. Verify that all 4 Docker containers were created by running 'docker ps'.
+1. **Bronze (Raw data)**  
+   - DAG en Airflow que:
+     - Consume la API de la NBA (`nba_api`)  
+     - Genera JSON: `games.json`, `players.json`, `teams.json`, `salaries.json`, etc.  
+     - Almacena esos archivos en MinIO
 
-Note: Running 'astro dev start' will start your project with the Airflow Webserver exposed at port 8080 and Postgres exposed at port 5432. If you already have either of those ports allocated, you can either [stop your existing Docker containers or change the port](https://docs.astronomer.io/astro/test-and-troubleshoot-locally#ports-are-not-available).
+2. **Silver (Cleaning / Staging)**  
+   - Descarga los JSON de MinIO  
+   - Inserta los datos en tablas PostgreSQL sin transformación  
+   - El modelo raw queda listo para análisis y transformación
 
-3. Access the Airflow UI for your local Airflow project. To do so, go to http://localhost:8080/ and log in with 'admin' for both your Username and Password.
+3. **Gold (Analytics / BI)**  
+   - Usa **dbt** para aplicar lógica:
+     - Cálculos por temporada (local vs visitante)  
+     - Ranking de mejores jugadores  
+     - Identificación de puntos débiles del equipo  
+   - Produce tablas analíticas en `schema: gold` dentro de Postgres
 
-You should also be able to access your Postgres Database at 'localhost:5432/postgres'.
+4. **Visualización / Reporting** (opcional)  
+   - Conectar Superset a la base Postgres `gold`  
+   - Crear dashboards accesibles vía web
 
-Deploy Your Project to Astronomer
-=================================
+---
 
-If you have an Astronomer account, pushing code to a Deployment on Astronomer is simple. For deploying instructions, refer to Astronomer documentation: https://docs.astronomer.io/cloud/deploy-code/
+###  Primeros pasos (Getting Started)
 
-Contact
-=======
+1. Clonar el repositorio  
+   ```bash
+   git clone https://github.com/Andrestuc79/nba-spurs-etl.git
+   cd nba-spurs-etl
 
-The Astronomer CLI is maintained with love by the Astronomer team. To report a bug or suggest a change, reach out to our support.
