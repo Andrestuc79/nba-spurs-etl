@@ -33,9 +33,14 @@ Este proyecto implementa un pipeline completo de **Extracción, Carga y Transfor
 
 3. **Gold (Analytics / BI)**  
    - Usa **dbt** para aplicar lógica:
-     - Cálculos por temporada (local vs visitante)  
-     - Ranking de mejores jugadores  
-     - Identificación de puntos débiles del equipo  
+      -Analiza el rendimiento de los San Antonio Spurs en diferentes métricas clave (como el porcentaje de tiro, rebotes y robos). Luego, compara estos valores con los promedios de la liga y los del mejor equipo para cada temporada y de esta manera, se
+      muestran las debilidades y fortalezas del equipo en última temporada.
+      -Se usa los datos de rendimientos para identificar las principales debilidades del equipo. Luego, busca jugadores que destaquen en las métricas relacionadas con esas debilidades y se asocian datos como su rendimiento en la última temporada, salario,
+      lesiones si es agente libre.
+      -Se roporciona un resumen que incluye el número de victorias, derrotas, el total de partidos jugados, el promedio de puntos anotados, las rachas del equipo, los resultados contra sus rivales y el ranking del equipo en la liga.
+      -Se detalla la contribución individual de cada jugador de los Spurs en sus rubros claves.
+      -Compara el rendimiento del equipo en partidos jugados como local (en casa) frente a los jugados como visitante (fuera de casa).
+
    - Produce tablas analíticas en `schema: gold` dentro de Postgres
 
 4. **Visualización / Reporting** (opcional)  
