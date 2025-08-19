@@ -22,8 +22,18 @@ Este proyecto implementa un pipeline completo de **Extracción, Carga y Transfor
 
 1. **Bronze (Raw data)**  
    - DAG en Airflow que:
+     - Utilizo múltiples librerías: 
+         - Tenacity
+         - Pandas
+         - Random
+         - Boto3
+         - Json
+         - Psycopg2
+         - Datetime, Time
+         - Io
+         - Os
      - Consume la API de la NBA (`nba_api`)  
-     - Genera JSON: `games.json`, `players.json`, `teams.json`, `salaries.json`, etc.  
+     - Genera JSON: `games.json`, `players.json`, `teams.json`, `salaries.json`,`free_agents.json` y `player_stats_by_game.json`  
      - Almacena esos archivos en MinIO
 
 2. **Silver (Cleaning / Staging)**  
@@ -33,26 +43,18 @@ Este proyecto implementa un pipeline completo de **Extracción, Carga y Transfor
 
 3. **Gold (Analytics / BI)**  
    - Usa **dbt** para aplicar lógica:
-      -Analiza el rendimiento de los San Antonio Spurs en diferentes métricas clave (como el porcentaje de tiro, rebotes y robos). Luego, compara estos valores con los promedios de la liga y los del mejor equipo para cada temporada y de esta manera, se
+      - Analiza el rendimiento de los San Antonio Spurs en diferentes métricas claves (como el porcentaje de tiro, rebotes y robos). Luego, compara estos valores con los promedios de la liga y los del mejor equipo para cada temporada y de esta manera, se
       muestran las debilidades y fortalezas del equipo en última temporada.
-      -Se usa los datos de rendimientos para identificar las principales debilidades del equipo. Luego, busca jugadores que destaquen en las métricas relacionadas con esas debilidades y se asocian datos como su rendimiento en la última temporada, salario,
-      lesiones si es agente libre.
-      -Se roporciona un resumen que incluye el número de victorias, derrotas, el total de partidos jugados, el promedio de puntos anotados, las rachas del equipo, los resultados contra sus rivales y el ranking del equipo en la liga.
-      -Se detalla la contribución individual de cada jugador de los Spurs en sus rubros claves.
-      -Compara el rendimiento del equipo en partidos jugados como local (en casa) frente a los jugados como visitante (fuera de casa).
+      - Se usa los datos de rendimientos para identificar las principales debilidades del equipo. Luego, se busca jugadores que destaquen en las métricas relacionadas con esas debilidades y se asocian datos como su rendimiento en la última temporada, salario,
+      lesiones, si es agente libre, etc.
+      - Se proporciona un resumen que incluye el número de victorias, derrotas, el total de partidos jugados, el promedio de puntos anotados, las rachas del equipo, los resultados contra sus rivales y el ranking del equipo en la liga.
+      - Se detalla la contribución individual de cada jugador de los Spurs en sus rubros claves.
+      - Compara el rendimiento del equipo en partidos jugados como local (en casa) frente a los jugados como visitante (fuera de casa).
 
    - Produce tablas analíticas en `schema: gold` dentro de Postgres
 
-4. **Visualización / Reporting** (opcional)  
+4. **Visualización / Reporting**  
    - Conectar Superset a la base Postgres `gold`  
-   - Crear dashboards accesibles vía web
+   - Se genera un dashboard con tres pestañas (Análisis de Temporada, Rendimiento del Equipo y Recomendaciones )
 
 ---
-
-###  Primeros pasos (Getting Started)
-
-1. Clonar el repositorio  
-   ```bash
-   git clone https://github.com/Andrestuc79/nba-spurs-etl.git
-   cd nba-spurs-etl
-
