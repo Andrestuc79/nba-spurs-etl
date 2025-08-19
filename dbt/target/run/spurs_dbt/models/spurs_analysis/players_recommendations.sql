@@ -159,7 +159,6 @@ top_targets AS (
 SELECT
     swu.season2,
     tt.weakness_type,
-    tt.player_id,
     tt.player_name AS recommended_player,
     tt.position,
     tt.metric_value,

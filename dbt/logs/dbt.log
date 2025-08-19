@@ -72514,3 +72514,1061 @@ ORDER BY swu.season2, tt.weakness_type, tt.metric_value DESC
 [0m00:30:50.166277 [debug] [MainThread]: Command `dbt run` failed at 00:30:50.165697 after 3.42 seconds
 [0m00:30:50.167881 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5666a77980>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f56651f78c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f56651f7f20>]}
 [0m00:30:50.169020 [debug] [MainThread]: Flushing usage events
+[0m22:17:27.988664 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690c6c8860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690d0ea6c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690c6a9d00>]}
+
+
+============================== 22:17:27.994985 | dfc9402d-b606-4e5b-b085-403885a35e23 ==============================
+[0m22:17:27.994985 [info ] [MainThread]: Running with dbt=1.7.9
+[0m22:17:27.996670 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': '/usr/local/airflow/dbt', 'log_path': '/usr/local/airflow/dbt/logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m22:17:28.582936 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690bbc2990>]}
+[0m22:17:28.822812 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690c40e870>]}
+[0m22:17:28.825916 [info ] [MainThread]: Registered adapter: postgres=1.7.9
+[0m22:17:28.857092 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m22:17:29.225822 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 3 files changed.
+[0m22:17:29.228430 [debug] [MainThread]: Partial parsing: updated file: spurs_dbt://models/spurs_analysis/sources.yml
+[0m22:17:29.230438 [debug] [MainThread]: Partial parsing: updated file: spurs_dbt://models/spurs_analysis/spurs_analysis.yml
+[0m22:17:29.231627 [debug] [MainThread]: Partial parsing: updated file: spurs_dbt://models/spurs_analysis/players_recommendations.sql
+[0m22:17:29.846519 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.spurs_analysis
+[0m22:17:29.858247 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690abe1a60>]}
+[0m22:17:29.929323 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690afad520>]}
+[0m22:17:29.930628 [info ] [MainThread]: Found 6 models, 12 tests, 7 sources, 0 exposures, 0 metrics, 402 macros, 0 groups, 0 semantic models
+[0m22:17:29.931929 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690abce960>]}
+[0m22:17:29.936284 [info ] [MainThread]: 
+[0m22:17:29.938373 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m22:17:29.941338 [debug] [ThreadPool]: Acquiring new postgres connection 'list_nba'
+[0m22:17:29.959329 [debug] [ThreadPool]: Using postgres connection "list_nba"
+[0m22:17:29.961029 [debug] [ThreadPool]: On list_nba: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "connection_name": "list_nba"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m22:17:29.962658 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:17:29.978872 [debug] [ThreadPool]: SQL status: SELECT 8 in 0.0 seconds
+[0m22:17:29.983444 [debug] [ThreadPool]: On list_nba: Close
+[0m22:17:29.988348 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_nba, now list_nba_gold)
+[0m22:17:29.998405 [debug] [ThreadPool]: Using postgres connection "list_nba_gold"
+[0m22:17:29.999565 [debug] [ThreadPool]: On list_nba_gold: BEGIN
+[0m22:17:30.000509 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:17:30.011791 [debug] [ThreadPool]: SQL status: BEGIN in 0.0 seconds
+[0m22:17:30.013210 [debug] [ThreadPool]: Using postgres connection "list_nba_gold"
+[0m22:17:30.014671 [debug] [ThreadPool]: On list_nba_gold: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "connection_name": "list_nba_gold"} */
+select
+      'nba' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'gold'
+    union all
+    select
+      'nba' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'gold'
+    union all
+    select
+      'nba' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'gold'
+  
+[0m22:17:30.032597 [debug] [ThreadPool]: SQL status: SELECT 6 in 0.0 seconds
+[0m22:17:30.034844 [debug] [ThreadPool]: On list_nba_gold: ROLLBACK
+[0m22:17:30.036010 [debug] [ThreadPool]: On list_nba_gold: Close
+[0m22:17:30.044206 [debug] [MainThread]: Using postgres connection "master"
+[0m22:17:30.045505 [debug] [MainThread]: On master: BEGIN
+[0m22:17:30.046530 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:17:30.053370 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m22:17:30.054349 [debug] [MainThread]: Using postgres connection "master"
+[0m22:17:30.055297 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select distinct
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v', 'm')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+[0m22:17:30.081074 [debug] [MainThread]: SQL status: SELECT 0 in 0.0 seconds
+[0m22:17:30.083291 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690ab63a40>]}
+[0m22:17:30.084520 [debug] [MainThread]: On master: ROLLBACK
+[0m22:17:30.086088 [debug] [MainThread]: Using postgres connection "master"
+[0m22:17:30.087210 [debug] [MainThread]: On master: BEGIN
+[0m22:17:30.089582 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m22:17:30.091155 [debug] [MainThread]: On master: COMMIT
+[0m22:17:30.092310 [debug] [MainThread]: Using postgres connection "master"
+[0m22:17:30.093309 [debug] [MainThread]: On master: COMMIT
+[0m22:17:30.095121 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m22:17:30.096368 [debug] [MainThread]: On master: Close
+[0m22:17:30.098390 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m22:17:30.101434 [info ] [MainThread]: 
+[0m22:17:30.107873 [debug] [Thread-1 (]: Began running node model.spurs_dbt.home_vs_away
+[0m22:17:30.109405 [info ] [Thread-1 (]: 1 of 6 START sql table model gold.home_vs_away ................................. [RUN]
+[0m22:17:30.111711 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_nba_gold, now model.spurs_dbt.home_vs_away)
+[0m22:17:30.113239 [debug] [Thread-1 (]: Began compiling node model.spurs_dbt.home_vs_away
+[0m22:17:30.124753 [debug] [Thread-1 (]: Writing injected SQL for node "model.spurs_dbt.home_vs_away"
+[0m22:17:30.145455 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.home_vs_away (compile): 22:17:30.114131 => 22:17:30.144676
+[0m22:17:30.146931 [debug] [Thread-1 (]: Began executing node model.spurs_dbt.home_vs_away
+[0m22:17:30.203762 [debug] [Thread-1 (]: Writing runtime sql for node "model.spurs_dbt.home_vs_away"
+[0m22:17:30.225178 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.home_vs_away"
+[0m22:17:30.226480 [debug] [Thread-1 (]: On model.spurs_dbt.home_vs_away: BEGIN
+[0m22:17:30.228241 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m22:17:30.236761 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m22:17:30.238144 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.home_vs_away"
+[0m22:17:30.239442 [debug] [Thread-1 (]: On model.spurs_dbt.home_vs_away: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.home_vs_away"} */
+
+  
+    
+
+  create  table "nba"."gold"."home_vs_away__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+WITH nba_games AS (
+    SELECT
+        t1.*,t2.full_name AS team_name2
+    FROM "nba"."silver"."games" AS t1
+    INNER JOIN "nba"."silver"."teams" AS t2
+        ON t1.team_id = t2.id
+),
+
+
+base as (
+  select
+    case when season like '2024' then '2024-25'
+         else season end as season,
+    team_name2 as team_name,     
+    case
+      when matchup like '%@%' then 'Away'
+      else 'Home'
+    end as location,
+    wl,
+    pts::int as pts
+  from nba_games
+)
+
+select
+  season,
+  team_name,
+  location,
+  count(*) as games,
+  sum(case when wl = 'W' then 1 else 0 end) as wins,
+  sum(case when wl = 'L' then 1 else 0 end) as losses,
+  round(avg(pts), 2) as avg_points
+from base
+group by season,team_name,location
+order by season, location,wins desc
+  );
+  
+[0m22:17:30.271864 [debug] [Thread-1 (]: SQL status: SELECT 58 in 0.0 seconds
+[0m22:17:30.284687 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.home_vs_away"
+[0m22:17:30.285988 [debug] [Thread-1 (]: On model.spurs_dbt.home_vs_away: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.home_vs_away"} */
+alter table "nba"."gold"."home_vs_away" rename to "home_vs_away__dbt_backup"
+[0m22:17:30.288924 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:30.295378 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.home_vs_away"
+[0m22:17:30.296972 [debug] [Thread-1 (]: On model.spurs_dbt.home_vs_away: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.home_vs_away"} */
+alter table "nba"."gold"."home_vs_away__dbt_tmp" rename to "home_vs_away"
+[0m22:17:30.298925 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:30.330086 [debug] [Thread-1 (]: On model.spurs_dbt.home_vs_away: COMMIT
+[0m22:17:30.331331 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.home_vs_away"
+[0m22:17:30.332533 [debug] [Thread-1 (]: On model.spurs_dbt.home_vs_away: COMMIT
+[0m22:17:30.340488 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m22:17:30.350643 [debug] [Thread-1 (]: Applying DROP to: "nba"."gold"."home_vs_away__dbt_backup"
+[0m22:17:30.359427 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.home_vs_away"
+[0m22:17:30.360799 [debug] [Thread-1 (]: On model.spurs_dbt.home_vs_away: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.home_vs_away"} */
+drop table if exists "nba"."gold"."home_vs_away__dbt_backup" cascade
+[0m22:17:30.370546 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m22:17:30.373665 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.home_vs_away (execute): 22:17:30.147809 => 22:17:30.373378
+[0m22:17:30.374715 [debug] [Thread-1 (]: On model.spurs_dbt.home_vs_away: Close
+[0m22:17:30.376571 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690a725df0>]}
+[0m22:17:30.378422 [info ] [Thread-1 (]: 1 of 6 OK created sql table model gold.home_vs_away ............................ [[32mSELECT 58[0m in 0.27s]
+[0m22:17:30.380333 [debug] [Thread-1 (]: Finished running node model.spurs_dbt.home_vs_away
+[0m22:17:30.381918 [debug] [Thread-1 (]: Began running node model.spurs_dbt.spurs_player_contributions_unpivoted
+[0m22:17:30.383200 [info ] [Thread-1 (]: 2 of 6 START sql table model gold.spurs_player_contributions_unpivoted ......... [RUN]
+[0m22:17:30.384880 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.spurs_dbt.home_vs_away, now model.spurs_dbt.spurs_player_contributions_unpivoted)
+[0m22:17:30.386061 [debug] [Thread-1 (]: Began compiling node model.spurs_dbt.spurs_player_contributions_unpivoted
+[0m22:17:30.390545 [debug] [Thread-1 (]: Writing injected SQL for node "model.spurs_dbt.spurs_player_contributions_unpivoted"
+[0m22:17:30.410543 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.spurs_player_contributions_unpivoted (compile): 22:17:30.387016 => 22:17:30.410087
+[0m22:17:30.412047 [debug] [Thread-1 (]: Began executing node model.spurs_dbt.spurs_player_contributions_unpivoted
+[0m22:17:30.418275 [debug] [Thread-1 (]: Writing runtime sql for node "model.spurs_dbt.spurs_player_contributions_unpivoted"
+[0m22:17:30.439193 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.spurs_player_contributions_unpivoted"
+[0m22:17:30.440226 [debug] [Thread-1 (]: On model.spurs_dbt.spurs_player_contributions_unpivoted: BEGIN
+[0m22:17:30.441154 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m22:17:30.450022 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m22:17:30.451153 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.spurs_player_contributions_unpivoted"
+[0m22:17:30.452217 [debug] [Thread-1 (]: On model.spurs_dbt.spurs_player_contributions_unpivoted: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.spurs_player_contributions_unpivoted"} */
+
+  
+    
+
+  create  table "nba"."gold"."spurs_player_contributions_unpivoted__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH source_data AS (
+
+    -- Usamos `source` si tienes la tabla definida en tu `sources.yml`,
+    -- o la referenciamos directamente si es un modelo intermedio.
+    -- Reemplaza `your_source_name` y `your_table_name` con los nombres correctos.
+    SELECT
+    player_id,
+    player_name,
+    team_abbreviation,
+    AVG(fg_pct::numeric) AS avg_fg_pct,
+    AVG(fg3_pct::numeric) AS avg_fg3_pct,
+    AVG(reb::numeric) AS avg_reb,
+    AVG(tov::numeric) AS avg_tov,
+    AVG(stl::numeric) AS avg_stl,
+    AVG(blk::numeric) AS avg_blk,
+    AVG(plus_minus::numeric) AS avg_plus_minus
+from 
+silver.player_stats
+where team_abbreviation = 'SAS'
+GROUP BY player_id, player_name, team_abbreviation
+),
+
+
+unpivoted_contribucion AS (
+    SELECT
+        ss.player_id,
+        ss.player_name,
+        'Porcentaje de tiro de campo' AS rubro,
+        ss.avg_fg_pct AS valor
+    FROM source_data ss
+    
+    UNION ALL
+
+    SELECT
+        ss.player_id,
+        ss.player_name,
+        'Porcentaje de tres' AS rubro,
+        ss.avg_fg3_pct as valor
+    FROM source_data ss
+  
+    UNION ALL
+
+    SELECT
+        ss.player_id,
+        ss.player_name,
+        'Pérdidas de balón' AS rubro,
+        ss.avg_tov as valor
+    FROM source_data ss
+   
+    UNION ALL
+
+    SELECT
+        ss.player_id,
+        ss.player_name,
+        'Rebotes' AS rubro,
+        ss.avg_reb as valor
+    FROM source_data ss
+  
+    UNION ALL
+
+    SELECT
+        ss.player_id,
+        ss.player_name,
+        'Robos' AS rubro,
+        ss.avg_stl as valor
+    FROM source_data ss
+   
+    UNION ALL
+
+    SELECT
+        ss.player_id,
+        ss.player_name,
+        'Bloqueos' AS rubro,
+        ss.avg_blk as valor
+    FROM source_data ss
+  
+    UNION ALL
+
+    SELECT
+        ss.player_id,
+        ss.player_name,
+        'Diferencial Puntos' AS rubro,
+        ss.avg_plus_minus as valor
+    FROM source_data ss
+    
+)
+
+SELECT * FROM unpivoted_contribucion
+  );
+  
+[0m22:17:30.499806 [debug] [Thread-1 (]: SQL status: SELECT 238 in 0.0 seconds
+[0m22:17:30.504949 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.spurs_player_contributions_unpivoted"
+[0m22:17:30.506160 [debug] [Thread-1 (]: On model.spurs_dbt.spurs_player_contributions_unpivoted: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.spurs_player_contributions_unpivoted"} */
+alter table "nba"."gold"."spurs_player_contributions_unpivoted" rename to "spurs_player_contributions_unpivoted__dbt_backup"
+[0m22:17:30.507941 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:30.513727 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.spurs_player_contributions_unpivoted"
+[0m22:17:30.515023 [debug] [Thread-1 (]: On model.spurs_dbt.spurs_player_contributions_unpivoted: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.spurs_player_contributions_unpivoted"} */
+alter table "nba"."gold"."spurs_player_contributions_unpivoted__dbt_tmp" rename to "spurs_player_contributions_unpivoted"
+[0m22:17:30.516765 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:30.519896 [debug] [Thread-1 (]: On model.spurs_dbt.spurs_player_contributions_unpivoted: COMMIT
+[0m22:17:30.521196 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.spurs_player_contributions_unpivoted"
+[0m22:17:30.522352 [debug] [Thread-1 (]: On model.spurs_dbt.spurs_player_contributions_unpivoted: COMMIT
+[0m22:17:30.532287 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m22:17:30.536414 [debug] [Thread-1 (]: Applying DROP to: "nba"."gold"."spurs_player_contributions_unpivoted__dbt_backup"
+[0m22:17:30.538001 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.spurs_player_contributions_unpivoted"
+[0m22:17:30.539133 [debug] [Thread-1 (]: On model.spurs_dbt.spurs_player_contributions_unpivoted: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.spurs_player_contributions_unpivoted"} */
+drop table if exists "nba"."gold"."spurs_player_contributions_unpivoted__dbt_backup" cascade
+[0m22:17:30.547730 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m22:17:30.551040 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.spurs_player_contributions_unpivoted (execute): 22:17:30.412971 => 22:17:30.550600
+[0m22:17:30.552277 [debug] [Thread-1 (]: On model.spurs_dbt.spurs_player_contributions_unpivoted: Close
+[0m22:17:30.554129 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690b3bf320>]}
+[0m22:17:30.555564 [info ] [Thread-1 (]: 2 of 6 OK created sql table model gold.spurs_player_contributions_unpivoted .... [[32mSELECT 238[0m in 0.17s]
+[0m22:17:30.557205 [debug] [Thread-1 (]: Finished running node model.spurs_dbt.spurs_player_contributions_unpivoted
+[0m22:17:30.558370 [debug] [Thread-1 (]: Began running node model.spurs_dbt.streaks_and_rivals
+[0m22:17:30.559511 [info ] [Thread-1 (]: 3 of 6 START sql table model gold.streaks_and_rivals ........................... [RUN]
+[0m22:17:30.561597 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.spurs_dbt.spurs_player_contributions_unpivoted, now model.spurs_dbt.streaks_and_rivals)
+[0m22:17:30.563028 [debug] [Thread-1 (]: Began compiling node model.spurs_dbt.streaks_and_rivals
+[0m22:17:30.569391 [debug] [Thread-1 (]: Writing injected SQL for node "model.spurs_dbt.streaks_and_rivals"
+[0m22:17:30.590386 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.streaks_and_rivals (compile): 22:17:30.563733 => 22:17:30.589918
+[0m22:17:30.591471 [debug] [Thread-1 (]: Began executing node model.spurs_dbt.streaks_and_rivals
+[0m22:17:30.597614 [debug] [Thread-1 (]: Writing runtime sql for node "model.spurs_dbt.streaks_and_rivals"
+[0m22:17:30.615285 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.streaks_and_rivals"
+[0m22:17:30.616188 [debug] [Thread-1 (]: On model.spurs_dbt.streaks_and_rivals: BEGIN
+[0m22:17:30.617226 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m22:17:30.623970 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m22:17:30.625110 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.streaks_and_rivals"
+[0m22:17:30.626217 [debug] [Thread-1 (]: On model.spurs_dbt.streaks_and_rivals: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.streaks_and_rivals"} */
+
+  
+    
+
+  create  table "nba"."gold"."streaks_and_rivals__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH spurs_games AS (
+    SELECT
+        case when season like '2024' then '2024-25'
+         else season end as season,
+        game_date,
+        matchup,
+        plus_minus,
+        CASE 
+            WHEN wl = 'W' THEN 1 
+            ELSE 0 
+        END AS is_win,
+        CASE 
+            WHEN wl = 'L' THEN 1 
+            ELSE 0 
+        END AS is_loss
+    FROM "nba"."silver"."games"
+    WHERE team_abbreviation = 'SAS'
+),
+
+winning_streaks AS (
+    SELECT
+        *,
+        SUM(is_loss) OVER (ORDER BY game_date) AS loss_group
+    FROM spurs_games
+),
+
+losing_streaks AS (
+    SELECT
+        *,
+        SUM(is_win) OVER (ORDER BY game_date) AS win_group
+    FROM spurs_games
+),
+
+best_winning_streak AS (
+    SELECT
+        season,
+        COUNT(*) AS streak_length
+    FROM winning_streaks
+    WHERE is_win = 1
+    GROUP BY season, loss_group
+    ORDER BY streak_length DESC
+    LIMIT 1
+),
+
+worst_losing_streak AS (
+    SELECT
+        season,
+        COUNT(*) AS streak_length
+    FROM losing_streaks
+    WHERE is_loss = 1
+    GROUP BY season, win_group
+    ORDER BY streak_length DESC
+    LIMIT 1
+),
+
+biggest_win AS (
+    SELECT
+        season,
+        -- Extrae el nombre del oponente de la columna 'matchup'
+        CASE
+            WHEN matchup LIKE '%vs.%' THEN SPLIT_PART(matchup, 'vs. ', 2)
+            WHEN matchup LIKE '%@%' THEN SPLIT_PART(matchup, '@ ', 2)
+            ELSE matchup
+        END AS opponent,
+        plus_minus AS point_differential
+    FROM spurs_games
+    WHERE plus_minus = (SELECT MAX(plus_minus) FROM spurs_games)
+    ORDER BY point_differential DESC
+    LIMIT 1
+),
+
+biggest_loss AS (
+    SELECT
+        season,
+        -- Extrae el nombre del oponente de la columna 'matchup'
+        CASE
+            WHEN matchup LIKE '%vs.%' THEN SPLIT_PART(matchup, 'vs. ', 2)
+            WHEN matchup LIKE '%@%' THEN SPLIT_PART(matchup, '@ ', 2)
+            ELSE matchup
+        END AS opponent,
+        plus_minus AS point_differential
+    FROM spurs_games
+    WHERE plus_minus = (SELECT MIN(plus_minus) FROM spurs_games)
+    ORDER BY point_differential ASC
+    LIMIT 1
+)
+
+-- Consulta final que une todas las métricas en una sola fila
+SELECT
+    (SELECT season FROM best_winning_streak) AS best_winning_streak_season,
+    (SELECT streak_length FROM best_winning_streak) AS best_winning_streak_length,
+    (SELECT season FROM worst_losing_streak) AS worst_losing_streak_season,
+    (SELECT streak_length FROM worst_losing_streak) AS worst_losing_streak_length,
+    (SELECT season FROM biggest_win) AS biggest_win_season,
+    (SELECT opponent FROM biggest_win) AS team_beat_by_most,
+    (SELECT point_differential FROM biggest_win) AS biggest_win_margin,
+    (SELECT season FROM biggest_loss) AS biggest_loss_season,
+    (SELECT opponent FROM biggest_loss) AS team_lost_to_by_most,
+    (SELECT point_differential FROM biggest_loss) AS biggest_loss_margin
+  );
+  
+[0m22:17:30.647938 [debug] [Thread-1 (]: SQL status: SELECT 1 in 0.0 seconds
+[0m22:17:30.652250 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.streaks_and_rivals"
+[0m22:17:30.653496 [debug] [Thread-1 (]: On model.spurs_dbt.streaks_and_rivals: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.streaks_and_rivals"} */
+alter table "nba"."gold"."streaks_and_rivals" rename to "streaks_and_rivals__dbt_backup"
+[0m22:17:30.655165 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:30.659490 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.streaks_and_rivals"
+[0m22:17:30.661004 [debug] [Thread-1 (]: On model.spurs_dbt.streaks_and_rivals: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.streaks_and_rivals"} */
+alter table "nba"."gold"."streaks_and_rivals__dbt_tmp" rename to "streaks_and_rivals"
+[0m22:17:30.663292 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:30.666605 [debug] [Thread-1 (]: On model.spurs_dbt.streaks_and_rivals: COMMIT
+[0m22:17:30.667948 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.streaks_and_rivals"
+[0m22:17:30.668947 [debug] [Thread-1 (]: On model.spurs_dbt.streaks_and_rivals: COMMIT
+[0m22:17:30.674895 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m22:17:30.680789 [debug] [Thread-1 (]: Applying DROP to: "nba"."gold"."streaks_and_rivals__dbt_backup"
+[0m22:17:30.682742 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.streaks_and_rivals"
+[0m22:17:30.683797 [debug] [Thread-1 (]: On model.spurs_dbt.streaks_and_rivals: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.streaks_and_rivals"} */
+drop table if exists "nba"."gold"."streaks_and_rivals__dbt_backup" cascade
+[0m22:17:30.693870 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m22:17:30.698009 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.streaks_and_rivals (execute): 22:17:30.592247 => 22:17:30.697705
+[0m22:17:30.699167 [debug] [Thread-1 (]: On model.spurs_dbt.streaks_and_rivals: Close
+[0m22:17:30.701058 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7269087014c0>]}
+[0m22:17:30.702645 [info ] [Thread-1 (]: 3 of 6 OK created sql table model gold.streaks_and_rivals ...................... [[32mSELECT 1[0m in 0.14s]
+[0m22:17:30.704201 [debug] [Thread-1 (]: Finished running node model.spurs_dbt.streaks_and_rivals
+[0m22:17:30.705434 [debug] [Thread-1 (]: Began running node model.spurs_dbt.summary_by_season
+[0m22:17:30.706623 [info ] [Thread-1 (]: 4 of 6 START sql table model gold.summary_by_season ............................ [RUN]
+[0m22:17:30.708126 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.spurs_dbt.streaks_and_rivals, now model.spurs_dbt.summary_by_season)
+[0m22:17:30.709318 [debug] [Thread-1 (]: Began compiling node model.spurs_dbt.summary_by_season
+[0m22:17:30.715071 [debug] [Thread-1 (]: Writing injected SQL for node "model.spurs_dbt.summary_by_season"
+[0m22:17:30.734516 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.summary_by_season (compile): 22:17:30.710333 => 22:17:30.734130
+[0m22:17:30.735497 [debug] [Thread-1 (]: Began executing node model.spurs_dbt.summary_by_season
+[0m22:17:30.741471 [debug] [Thread-1 (]: Writing runtime sql for node "model.spurs_dbt.summary_by_season"
+[0m22:17:30.759113 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.summary_by_season"
+[0m22:17:30.760154 [debug] [Thread-1 (]: On model.spurs_dbt.summary_by_season: BEGIN
+[0m22:17:30.761413 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m22:17:30.768415 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m22:17:30.769570 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.summary_by_season"
+[0m22:17:30.770604 [debug] [Thread-1 (]: On model.spurs_dbt.summary_by_season: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.summary_by_season"} */
+
+  
+    
+
+  create  table "nba"."gold"."summary_by_season__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH nba_games AS (
+    SELECT
+        t1.*
+    FROM "nba"."silver"."games" AS t1
+    INNER JOIN "nba"."silver"."teams" AS t2
+        ON t1.team_id = t2.id
+),
+
+base as (
+  select
+    case when season like '2024' then '2024-25'
+        else season end as season,
+    team_name,
+    wl,
+    pts::int as pts
+  from nba_games
+  
+),
+
+sumariza as (select
+  season,
+  team_name,
+  count(*) as total_games,
+  sum(case when wl = 'W' then 1 else 0 end) as wins,
+  sum(case when wl = 'L' then 1 else 0 end) as losses,
+  round(avg(pts), 2) as avg_points
+from base
+group by season,team_name
+order by season,wins desc)
+
+ 
+  SELECT
+    t1.season,
+    t1.team_name,
+    t1.wins,
+    t1.losses,
+    t1.total_games,
+    t1.avg_points,
+    DENSE_RANK() OVER (PARTITION BY t1.season ORDER BY t1.wins DESC, t1.losses ASC,t1.avg_points desc) AS team_ranking
+from sumariza t1
+  );
+  
+[0m22:17:30.793916 [debug] [Thread-1 (]: SQL status: SELECT 29 in 0.0 seconds
+[0m22:17:30.798792 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.summary_by_season"
+[0m22:17:30.799933 [debug] [Thread-1 (]: On model.spurs_dbt.summary_by_season: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.summary_by_season"} */
+alter table "nba"."gold"."summary_by_season" rename to "summary_by_season__dbt_backup"
+[0m22:17:30.801512 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:30.805757 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.summary_by_season"
+[0m22:17:30.807095 [debug] [Thread-1 (]: On model.spurs_dbt.summary_by_season: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.summary_by_season"} */
+alter table "nba"."gold"."summary_by_season__dbt_tmp" rename to "summary_by_season"
+[0m22:17:30.808473 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:30.812840 [debug] [Thread-1 (]: On model.spurs_dbt.summary_by_season: COMMIT
+[0m22:17:30.814094 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.summary_by_season"
+[0m22:17:30.815167 [debug] [Thread-1 (]: On model.spurs_dbt.summary_by_season: COMMIT
+[0m22:17:30.821321 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m22:17:30.825752 [debug] [Thread-1 (]: Applying DROP to: "nba"."gold"."summary_by_season__dbt_backup"
+[0m22:17:30.827971 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.summary_by_season"
+[0m22:17:30.829711 [debug] [Thread-1 (]: On model.spurs_dbt.summary_by_season: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.summary_by_season"} */
+drop table if exists "nba"."gold"."summary_by_season__dbt_backup" cascade
+[0m22:17:30.838047 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m22:17:30.840523 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.summary_by_season (execute): 22:17:30.736259 => 22:17:30.840257
+[0m22:17:30.841919 [debug] [Thread-1 (]: On model.spurs_dbt.summary_by_season: Close
+[0m22:17:30.843651 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690b323f80>]}
+[0m22:17:30.846421 [info ] [Thread-1 (]: 4 of 6 OK created sql table model gold.summary_by_season ....................... [[32mSELECT 29[0m in 0.14s]
+[0m22:17:30.848826 [debug] [Thread-1 (]: Finished running node model.spurs_dbt.summary_by_season
+[0m22:17:30.850664 [debug] [Thread-1 (]: Began running node model.spurs_dbt.team_weaknesses_unpivoted
+[0m22:17:30.852215 [info ] [Thread-1 (]: 5 of 6 START sql table model gold.team_weaknesses_unpivoted .................... [RUN]
+[0m22:17:30.854105 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.spurs_dbt.summary_by_season, now model.spurs_dbt.team_weaknesses_unpivoted)
+[0m22:17:30.855225 [debug] [Thread-1 (]: Began compiling node model.spurs_dbt.team_weaknesses_unpivoted
+[0m22:17:30.862637 [debug] [Thread-1 (]: Writing injected SQL for node "model.spurs_dbt.team_weaknesses_unpivoted"
+[0m22:17:30.882382 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.team_weaknesses_unpivoted (compile): 22:17:30.856100 => 22:17:30.881912
+[0m22:17:30.883433 [debug] [Thread-1 (]: Began executing node model.spurs_dbt.team_weaknesses_unpivoted
+[0m22:17:30.890174 [debug] [Thread-1 (]: Writing runtime sql for node "model.spurs_dbt.team_weaknesses_unpivoted"
+[0m22:17:30.909192 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.team_weaknesses_unpivoted"
+[0m22:17:30.910414 [debug] [Thread-1 (]: On model.spurs_dbt.team_weaknesses_unpivoted: BEGIN
+[0m22:17:30.911857 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m22:17:30.919466 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m22:17:30.923350 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.team_weaknesses_unpivoted"
+[0m22:17:30.924862 [debug] [Thread-1 (]: On model.spurs_dbt.team_weaknesses_unpivoted: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.team_weaknesses_unpivoted"} */
+
+  
+    
+
+  create  table "nba"."gold"."team_weaknesses_unpivoted__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH spurs_stats AS (
+    SELECT
+        case when season like '2024' then '2024-25'
+            else season end as season2,
+        AVG(fg_pct::numeric) AS avg_fg_pct,
+        AVG(fg3_pct::numeric) AS avg_fg3_pct,
+        AVG(tov::numeric) AS avg_turnovers,
+        AVG(reb::numeric) AS avg_rebounds,
+        AVG(blk::numeric) AS avg_blocks,
+        AVG(stl::numeric) AS avg_steals,
+        AVG(plus_minus::numeric) AS avg_plus_minus
+    FROM "nba"."silver"."games"
+    WHERE team_name = 'San Antonio Spurs'
+    GROUP BY season2
+),
+
+team_averages AS (
+    SELECT
+        case when t1.season like '2024' then '2024-25'
+            else t1.season end as season2,
+        AVG(t1.fg_pct::numeric) AS avg_league_fg_pct,
+        AVG(t1.fg3_pct::numeric) AS avg_league_fg3_pct,
+        AVG(t1.tov::numeric) AS avg_league_turnovers,
+        AVG(t1.reb::numeric) AS avg_league_rebounds,
+        AVG(t1.blk::numeric) AS avg_league_blocks,
+        AVG(t1.stl::numeric) AS avg_league_steals,
+        AVG(t1.plus_minus::numeric) AS avg_league_plus_minus
+    FROM "nba"."silver"."games" t1
+    INNER JOIN "nba"."silver"."teams" AS t2
+        ON t1.team_id = t2.id
+    GROUP BY season2
+),
+
+best_team_stats AS (
+    SELECT
+        season2 AS season2,
+        MAX(avg_fg_pct) AS best_team_avg_fg_pct,
+        MAX(avg_fg3_pct) AS best_team_avg_fg3_pct,
+        MIN(avg_turnovers) AS best_team_avg_turnovers, -- Menos pérdidas es mejor
+        MAX(avg_reb) AS best_team_avg_rebounds,
+        MAX(avg_blk) AS best_team_avg_blocks,
+        MAX(avg_stl) AS best_team_avg_steals,
+        MAX(avg_plus_minus) AS best_team_avg_plus_minus
+    FROM (
+        SELECT
+            case when t1.season like '2024' then '2024-25'
+            else t1.season end as season2,
+            t1.team_name,
+            AVG(t1.fg_pct::numeric) AS avg_fg_pct,
+            AVG(t1.fg3_pct::numeric) AS avg_fg3_pct,
+            AVG(t1.tov::numeric) AS avg_turnovers,
+            AVG(t1.reb::numeric) AS avg_reb,
+            AVG(t1.blk::numeric) AS avg_blk,
+            AVG(t1.stl::numeric) AS avg_stl,
+            AVG(t1.plus_minus::numeric) AS avg_plus_minus
+        FROM "nba"."silver"."games" t1
+        INNER JOIN "nba"."silver"."teams" AS t2
+            ON t1.team_id = t2.id
+        GROUP BY season2, team_name
+    ) AS all_teams
+    GROUP BY season2
+),
+
+unpivoted_weaknesses AS (
+    SELECT
+        ss.season2,
+        'Porcentaje de tiro de campo' AS weakness_type,
+        ss.avg_fg_pct AS valor_equipo,
+        ta.avg_league_fg_pct AS valor_liga,
+        bts.best_team_avg_fg_pct AS valor_mejor_equipo,
+        case when ss.avg_fg_pct < ta.avg_league_fg_pct then 'Debilidad' else 'Fortaleza' end AS Resultado
+    FROM spurs_stats ss
+    JOIN team_averages ta ON ss.season2 = ta.season2
+    JOIN best_team_stats bts ON ss.season2 = bts.season2
+    
+    UNION ALL
+
+    SELECT
+        ss.season2,
+        'Porcentaje de tres' AS weakness_type,
+        ss.avg_fg3_pct,
+        ta.avg_league_fg3_pct,
+        bts.best_team_avg_fg3_pct,
+        case when ss.avg_fg3_pct < ta.avg_league_fg3_pct then 'Debilidad' else 'Fortaleza' end AS Resultado
+    FROM spurs_stats ss
+    JOIN team_averages ta ON ss.season2 = ta.season2
+    JOIN best_team_stats bts ON ss.season2 = bts.season2
+
+    UNION ALL
+
+    SELECT
+        ss.season2,
+        'Pérdidas de balón' AS weakness_type,
+        ss.avg_turnovers,
+        ta.avg_league_turnovers,
+        bts.best_team_avg_turnovers,
+        case when ss.avg_turnovers > ta.avg_league_turnovers then 'Debilidad' else 'Fortaleza' end AS Resultado
+    FROM spurs_stats ss
+    JOIN team_averages ta ON ss.season2 = ta.season2
+    JOIN best_team_stats bts ON ss.season2 = bts.season2
+
+    UNION ALL
+
+    SELECT
+        ss.season2,
+        'Rebotes' AS weakness_type,
+        ss.avg_rebounds,
+        ta.avg_league_rebounds,
+        bts.best_team_avg_rebounds,
+        case when ss.avg_rebounds < ta.avg_league_rebounds then 'Debilidad' else 'Fortaleza' end AS Resultado
+    FROM spurs_stats ss
+    JOIN team_averages ta ON ss.season2 = ta.season2
+    JOIN best_team_stats bts ON ss.season2 = bts.season2
+
+    UNION ALL
+
+    SELECT
+        ss.season2,
+        'Robos' AS weakness_type,
+        ss.avg_steals,
+        ta.avg_league_steals,
+        bts.best_team_avg_steals,
+        case when ss.avg_steals < ta.avg_league_steals then 'Debilidad' else 'Fortaleza' end AS Resultado
+    FROM spurs_stats ss
+    JOIN team_averages ta ON ss.season2 = ta.season2
+    JOIN best_team_stats bts ON ss.season2 = bts.season2
+
+    UNION ALL
+
+    SELECT
+        ss.season2,
+        'Bloqueos' AS weakness_type,
+        ss.avg_blocks,
+        ta.avg_league_blocks,
+        bts.best_team_avg_blocks,
+        case when ss.avg_blocks < ta.avg_league_blocks then 'Debilidad' else 'Fortaleza' end AS Resultado
+    FROM spurs_stats ss
+    JOIN team_averages ta ON ss.season2 = ta.season2
+    JOIN best_team_stats bts ON ss.season2 = bts.season2
+
+    UNION ALL
+
+    SELECT
+        ss.season2,
+        'Diferencial Puntos' AS weakness_type,
+        ss.avg_plus_minus,
+        ta.avg_league_plus_minus,
+        bts.best_team_avg_plus_minus,
+        case when ss.avg_plus_minus < ta.avg_league_plus_minus then 'Debilidad' else 'Fortaleza' end AS Resultado
+    FROM spurs_stats ss
+    JOIN team_averages ta ON ss.season2 = ta.season2
+    JOIN best_team_stats bts ON ss.season2 = bts.season2
+)
+
+SELECT
+    season2,
+    weakness_type,
+    valor_equipo,
+    valor_liga,
+    valor_mejor_equipo,
+    resultado
+FROM unpivoted_weaknesses
+ORDER BY season2, weakness_type
+  );
+  
+[0m22:17:30.964489 [debug] [Thread-1 (]: SQL status: SELECT 7 in 0.0 seconds
+[0m22:17:30.970103 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.team_weaknesses_unpivoted"
+[0m22:17:30.971569 [debug] [Thread-1 (]: On model.spurs_dbt.team_weaknesses_unpivoted: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.team_weaknesses_unpivoted"} */
+alter table "nba"."gold"."team_weaknesses_unpivoted" rename to "team_weaknesses_unpivoted__dbt_backup"
+[0m22:17:30.973830 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:31.062630 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.team_weaknesses_unpivoted"
+[0m22:17:31.063929 [debug] [Thread-1 (]: On model.spurs_dbt.team_weaknesses_unpivoted: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.team_weaknesses_unpivoted"} */
+alter table "nba"."gold"."team_weaknesses_unpivoted__dbt_tmp" rename to "team_weaknesses_unpivoted"
+[0m22:17:31.065852 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:31.069645 [debug] [Thread-1 (]: On model.spurs_dbt.team_weaknesses_unpivoted: COMMIT
+[0m22:17:31.070691 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.team_weaknesses_unpivoted"
+[0m22:17:31.071615 [debug] [Thread-1 (]: On model.spurs_dbt.team_weaknesses_unpivoted: COMMIT
+[0m22:17:31.077894 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m22:17:31.082821 [debug] [Thread-1 (]: Applying DROP to: "nba"."gold"."team_weaknesses_unpivoted__dbt_backup"
+[0m22:17:31.084391 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.team_weaknesses_unpivoted"
+[0m22:17:31.085461 [debug] [Thread-1 (]: On model.spurs_dbt.team_weaknesses_unpivoted: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.team_weaknesses_unpivoted"} */
+drop table if exists "nba"."gold"."team_weaknesses_unpivoted__dbt_backup" cascade
+[0m22:17:31.093899 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m22:17:31.097368 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.team_weaknesses_unpivoted (execute): 22:17:30.884286 => 22:17:31.097041
+[0m22:17:31.098351 [debug] [Thread-1 (]: On model.spurs_dbt.team_weaknesses_unpivoted: Close
+[0m22:17:31.100182 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7269087465d0>]}
+[0m22:17:31.101572 [info ] [Thread-1 (]: 5 of 6 OK created sql table model gold.team_weaknesses_unpivoted ............... [[32mSELECT 7[0m in 0.25s]
+[0m22:17:31.103432 [debug] [Thread-1 (]: Finished running node model.spurs_dbt.team_weaknesses_unpivoted
+[0m22:17:31.105595 [debug] [Thread-1 (]: Began running node model.spurs_dbt.players_recommendations
+[0m22:17:31.107061 [info ] [Thread-1 (]: 6 of 6 START sql table model gold.players_recommendations ...................... [RUN]
+[0m22:17:31.108762 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.spurs_dbt.team_weaknesses_unpivoted, now model.spurs_dbt.players_recommendations)
+[0m22:17:31.109998 [debug] [Thread-1 (]: Began compiling node model.spurs_dbt.players_recommendations
+[0m22:17:31.118042 [debug] [Thread-1 (]: Writing injected SQL for node "model.spurs_dbt.players_recommendations"
+[0m22:17:31.135350 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.players_recommendations (compile): 22:17:31.111096 => 22:17:31.134944
+[0m22:17:31.136514 [debug] [Thread-1 (]: Began executing node model.spurs_dbt.players_recommendations
+[0m22:17:31.143572 [debug] [Thread-1 (]: Writing runtime sql for node "model.spurs_dbt.players_recommendations"
+[0m22:17:31.159182 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.players_recommendations"
+[0m22:17:31.160178 [debug] [Thread-1 (]: On model.spurs_dbt.players_recommendations: BEGIN
+[0m22:17:31.162171 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m22:17:31.169420 [debug] [Thread-1 (]: SQL status: BEGIN in 0.0 seconds
+[0m22:17:31.170725 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.players_recommendations"
+[0m22:17:31.172892 [debug] [Thread-1 (]: On model.spurs_dbt.players_recommendations: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.players_recommendations"} */
+
+  
+    
+
+  create  table "nba"."gold"."players_recommendations__dbt_tmp"
+  
+  
+    as
+  
+  (
+    
+
+WITH spurs_weaknesses_unpivoted AS (
+    SELECT
+        season2,
+        weakness_type
+    FROM "nba"."gold"."team_weaknesses_unpivoted"
+    WHERE Resultado = 'Debilidad'
+),
+
+ranked_free_agents AS (
+  SELECT
+        p.player_id,
+        p.player AS player_name,
+        p.position,
+        CASE WHEN fa.player_id IS NOT NULL THEN TRUE ELSE FALSE END AS is_free_agent,
+        CASE WHEN i.player_id IS NOT NULL THEN TRUE ELSE FALSE END AS is_injured,
+        s.salary_usd::numeric AS salary,
+        pgs.avg_fg_pct,
+        pgs.avg_fg3_pct,
+        pgs.avg_reb,
+        pgs.avg_tov,
+        pgs.avg_plus_minus,
+        pgs.avg_stl,
+        pgs.avg_blk,
+        ROW_NUMBER() OVER (ORDER BY pgs.avg_fg_pct DESC) AS rank_fg,
+        ROW_NUMBER() OVER (ORDER BY pgs.avg_fg3_pct DESC) AS rank_fg3,
+        ROW_NUMBER() OVER (ORDER BY pgs.avg_reb DESC) AS rank_reb,
+        ROW_NUMBER() OVER (ORDER BY pgs.avg_tov ASC) AS rank_tov,
+        ROW_NUMBER() OVER (ORDER BY pgs.avg_stl DESC) AS rank_stl,
+        ROW_NUMBER() OVER (ORDER BY pgs.avg_blk DESC) AS rank_blk,
+        ROW_NUMBER() OVER (ORDER BY pgs.avg_plus_minus DESC) AS rank_plus_minus
+    FROM (select distinct player_id,player,position from "nba"."silver"."players") AS p
+    JOIN (SELECT
+    player_id,
+    player_name,
+    AVG(fg_pct::numeric) AS avg_fg_pct,  
+    AVG(fg3_pct::numeric) AS avg_fg3_pct,
+    AVG(reb::numeric) AS avg_reb,
+    AVG(tov::numeric) AS avg_tov,
+    AVG(stl::numeric) AS avg_stl,
+    AVG(blk::numeric) AS avg_blk,
+    AVG(plus_minus::numeric) AS avg_plus_minus
+    FROM "nba"."silver"."player_stats" 
+	group by player_id, player_name
+    ) AS pgs
+    ON p.player_id = pgs.player_id
+    LEFT JOIN "nba"."silver"."free_agents"  AS fa ON p.player_id = fa.player_id
+    LEFT JOIN (Select player_id from "nba"."silver"."injuries"  group by player_id) 
+	AS i ON p.player_id = i.player_id
+    LEFT JOIN (select player_id,max(salary_usd) as salary_usd from "nba"."silver"."salaries" group by player_id) AS s ON p.player_id = s.player_id
+),
+
+top_targets AS (
+    SELECT
+        'Porcentaje de tiro de campo' AS weakness_type,
+        player_id,
+        is_free_agent,
+        is_injured,
+        player_name,
+        avg_fg_pct AS metric_value,
+        position,
+        salary,
+        'Contratar un tirador de élite para mejorar la eficiencia del tiro.' AS reason
+    FROM ranked_free_agents
+    WHERE rank_fg <= 5 AND position IN ('G', 'F')
+    
+    UNION ALL
+    SELECT
+        'Porcentaje de tres' AS weakness_type,
+        player_id,
+        is_free_agent,
+        is_injured,
+        player_name,
+        avg_fg3_pct AS metric_value,
+        position,
+        salary,
+        'Contratar un tirador de élite para abrir el campo.' AS reason
+    FROM ranked_free_agents
+    WHERE rank_fg3 <= 5 AND position IN ('G', 'G-F', 'F')
+    UNION ALL
+    SELECT
+        'Rebotes' AS weakness_type,
+        player_id,
+        is_free_agent,
+        is_injured,
+        player_name,
+        avg_reb AS metric_value,
+        position,
+        salary,
+        'Adquirir un rebotador consistente para controlar los tableros.' AS reason
+    FROM ranked_free_agents
+    WHERE rank_reb <= 5 AND position IN ('F', 'F-C', 'C')
+    UNION ALL
+    SELECT
+        'Pérdidas de balón' AS weakness_type,
+        player_id,
+        is_free_agent,
+        is_injured,
+        player_name,
+        avg_tov AS metric_value,
+        position,
+        salary,
+        'Incorporar un base que reduzca las pérdidas de balón.' AS reason
+    FROM ranked_free_agents
+    WHERE rank_tov <= 5 AND position IN ('G')
+    UNION ALL
+    SELECT
+        'Robos' AS weakness_type,
+        player_id,
+        is_free_agent,
+        is_injured,
+        player_name,
+        avg_stl AS metric_value,
+        position,
+        salary,
+        'Firmar un defensor perimetral para mejorar la defensa en el robo de balones.' AS reason
+    FROM ranked_free_agents
+    WHERE rank_stl <= 5 AND position IN ('G', 'F')
+    UNION ALL
+    SELECT
+        'Bloqueos' AS weakness_type,
+        player_id,
+        is_free_agent,
+        is_injured,
+        player_name,
+        avg_blk AS metric_value,
+        position,
+        salary,
+        'Contratar un defensor interior para proteger el aro y aumentar los bloqueos.' AS reason
+    FROM ranked_free_agents
+    WHERE rank_blk <= 5 AND position IN ('F-C', 'C')
+    UNION ALL
+    SELECT
+        'Diferencial Puntos' AS weakness_type,
+        player_id,
+        is_free_agent,
+        is_injured,
+        player_name,
+        avg_plus_minus AS metric_value,
+        position,
+        salary,
+        'Contratar a un jugador con impacto positivo en el diferencial de puntos.' AS reason
+    FROM ranked_free_agents
+    WHERE rank_plus_minus <= 5
+     
+)
+
+SELECT
+    swu.season2,
+    tt.weakness_type,
+    tt.player_name AS recommended_player,
+    tt.position,
+    tt.metric_value,
+    tt.salary,
+    tt.reason,
+    tt.player_id,
+    tt.is_free_agent,
+    tt.is_injured
+FROM spurs_weaknesses_unpivoted swu
+JOIN top_targets tt ON swu.weakness_type = tt.weakness_type
+ORDER BY swu.season2, tt.weakness_type, tt.metric_value DESC
+  );
+  
+[0m22:17:31.382776 [debug] [Thread-1 (]: SQL status: SELECT 15 in 0.0 seconds
+[0m22:17:31.387443 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.players_recommendations"
+[0m22:17:31.388415 [debug] [Thread-1 (]: On model.spurs_dbt.players_recommendations: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.players_recommendations"} */
+alter table "nba"."gold"."players_recommendations" rename to "players_recommendations__dbt_backup"
+[0m22:17:31.390024 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:31.395379 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.players_recommendations"
+[0m22:17:31.396431 [debug] [Thread-1 (]: On model.spurs_dbt.players_recommendations: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.players_recommendations"} */
+alter table "nba"."gold"."players_recommendations__dbt_tmp" rename to "players_recommendations"
+[0m22:17:31.397863 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.0 seconds
+[0m22:17:31.400711 [debug] [Thread-1 (]: On model.spurs_dbt.players_recommendations: COMMIT
+[0m22:17:31.401501 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.players_recommendations"
+[0m22:17:31.402312 [debug] [Thread-1 (]: On model.spurs_dbt.players_recommendations: COMMIT
+[0m22:17:31.407094 [debug] [Thread-1 (]: SQL status: COMMIT in 0.0 seconds
+[0m22:17:31.411213 [debug] [Thread-1 (]: Applying DROP to: "nba"."gold"."players_recommendations__dbt_backup"
+[0m22:17:31.412763 [debug] [Thread-1 (]: Using postgres connection "model.spurs_dbt.players_recommendations"
+[0m22:17:31.413538 [debug] [Thread-1 (]: On model.spurs_dbt.players_recommendations: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "spurs_profile", "target_name": "dev", "node_id": "model.spurs_dbt.players_recommendations"} */
+drop table if exists "nba"."gold"."players_recommendations__dbt_backup" cascade
+[0m22:17:31.419384 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.0 seconds
+[0m22:17:31.421916 [debug] [Thread-1 (]: Timing info for model.spurs_dbt.players_recommendations (execute): 22:17:31.137701 => 22:17:31.421577
+[0m22:17:31.422803 [debug] [Thread-1 (]: On model.spurs_dbt.players_recommendations: Close
+[0m22:17:31.424166 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'dfc9402d-b606-4e5b-b085-403885a35e23', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690afbede0>]}
+[0m22:17:31.425235 [info ] [Thread-1 (]: 6 of 6 OK created sql table model gold.players_recommendations ................. [[32mSELECT 15[0m in 0.32s]
+[0m22:17:31.426400 [debug] [Thread-1 (]: Finished running node model.spurs_dbt.players_recommendations
+[0m22:17:31.429571 [debug] [MainThread]: Using postgres connection "master"
+[0m22:17:31.430415 [debug] [MainThread]: On master: BEGIN
+[0m22:17:31.431188 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m22:17:31.437275 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m22:17:31.438179 [debug] [MainThread]: On master: COMMIT
+[0m22:17:31.438930 [debug] [MainThread]: Using postgres connection "master"
+[0m22:17:31.439687 [debug] [MainThread]: On master: COMMIT
+[0m22:17:31.440776 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m22:17:31.441696 [debug] [MainThread]: On master: Close
+[0m22:17:31.443106 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:17:31.444069 [debug] [MainThread]: Connection 'model.spurs_dbt.players_recommendations' was properly closed.
+[0m22:17:31.445744 [info ] [MainThread]: 
+[0m22:17:31.446817 [info ] [MainThread]: Finished running 6 table models in 0 hours 0 minutes and 1.51 seconds (1.51s).
+[0m22:17:31.449045 [debug] [MainThread]: Command end result
+[0m22:17:31.500906 [info ] [MainThread]: 
+[0m22:17:31.501972 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m22:17:31.502970 [info ] [MainThread]: 
+[0m22:17:31.503923 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[0m22:17:31.506403 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 3.6135979, "process_user_time": 5.038011, "process_kernel_time": 1.26452, "process_mem_max_rss": "200996", "process_in_blocks": "4488", "process_out_blocks": "0"}
+[0m22:17:31.507593 [debug] [MainThread]: Command `dbt run` succeeded at 22:17:31.507390 after 3.62 seconds
+[0m22:17:31.508757 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690c6c8860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690afada60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72690a7bfce0>]}
+[0m22:17:31.509863 [debug] [MainThread]: Flushing usage events

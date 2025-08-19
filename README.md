@@ -2,7 +2,7 @@
 
 ![alt text](image-1.png)
 
-Este proyecto implementa un pipeline completo de **Extracción, Carga y Transformación (ETL/ELT)** para datos de los *San Antonio Spurs*, usando una arquitectura moderna con:
+Este proyecto implementa un pipeline completo de **Extracción, Carga y Transformación (ETL/ELT)** para datos de la última temporada 2024-25 de los *San Antonio Spurs*, que permite al Presidente de Operaciones o Entrenador Jefe analizar, proyectar y tomar decisiones en cuanto al equipo usando una arquitectura moderna con:
 
 - **Apache Airflow** para orquestar el flujo (Bronze → Silver → Gold)  
 - **MinIO** como almacenamiento de archivos **Bronze** (JSON)  

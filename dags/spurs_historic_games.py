@@ -449,65 +449,63 @@ with DAG(
     tags=["nba", "spurs", "minio"],
 ) as dag:
 
-    #with TaskGroup(group_id="bronze_tg") as bronze_tg:
+    with TaskGroup(group_id="bronze_tg") as bronze_tg:
 
-        # task_fetch_all_teams = PythonOperator(
-        #      task_id="fetch_teams",
-        #      python_callable=fetch_teams
-        #  )
+        task_fetch_all_teams = PythonOperator(
+            task_id="fetch_teams",
+            python_callable=fetch_teams
+          )
 
-        # task_fetch_players = PythonOperator(
-        #      task_id="fetch_players",
-        #      python_callable=fetch_players
-        # )       
+        task_fetch_players = PythonOperator(
+            task_id="fetch_players",
+            python_callable=fetch_players
+          )       
 
-        # task_fetch_games = PythonOperator(
-        #      task_id="fetch_spurs_games",
-        #      python_callable=fetch_games
-        #  )
+        task_fetch_games = PythonOperator(
+            task_id="fetch_spurs_games",
+            python_callable=fetch_games
+          )
 
-        # task_fetch_player_stats = PythonOperator(
-        #      task_id="fetch_player_stats_by_game",
-        #      python_callable=fetch_player_stats_by_game
-        #  )
+        task_fetch_player_stats = PythonOperator(
+            task_id="fetch_player_stats_by_game",
+            python_callable=fetch_player_stats_by_game
+          )
 
-        # task_generate_salaries = PythonOperator(
-        #      task_id="generate_fake_salaries",
-        #      python_callable=generate_fake_salaries
-        #  )
+        task_generate_salaries = PythonOperator(
+            task_id="generate_fake_salaries",
+            python_callable=generate_fake_salaries
+          )
 
-        #task_generate_free_agents = PythonOperator(
-        #       task_id="generate_free_agents",
-        #      python_callable=generate_free_agents
-        #)
+        task_generate_free_agents = PythonOperator(
+            task_id="generate_free_agents",
+            python_callable=generate_free_agents
+          )
 
-        # task_generate_injuries = PythonOperator(
-        #      task_id="generate_injuries",
-        #      python_callable=generate_injuries
-        #  )
+        task_generate_injuries = PythonOperator(
+            task_id="generate_injuries",
+            python_callable=generate_injuries
+          )
 
-        #task_upload_to_minio = PythonOperator(
-        #     task_id="upload_to_minio",
-        #     python_callable=upload_files_to_minio
-        #)
+        task_upload_to_minio = PythonOperator(
+             task_id="upload_to_minio",
+             python_callable=upload_files_to_minio
+          )
 
 
-        #task_fetch_all_teams >> task_fetch_players >> task_fetch_games
-        #task_fetch_games >> task_fetch_player_stats
-        #task_fetch_player_stats >> [task_generate_salaries, task_generate_free_agents, task_generate_injuries]
-        #[task_generate_salaries, task_generate_free_agents, task_generate_injuries] >> 
-        
-        #task_upload_to_minio
-
+        task_fetch_all_teams >> task_fetch_players >> task_fetch_games
+        task_fetch_games >> task_fetch_player_stats
+        task_fetch_player_stats >> [task_generate_salaries, task_generate_free_agents, task_generate_injuries]
+        [task_generate_salaries, task_generate_free_agents, task_generate_injuries] >> task_upload_to_minio  
+       
       
         #task_generate_free_agents >> task_upload_to_minio
 
-    #with TaskGroup(group_id="silver_tg") as silver_tg:
+    with TaskGroup(group_id="silver_tg") as silver_tg:
 
-    #    task_insert_games = PythonOperator(
-    #        task_id="insert_in_postgres",
-    #        python_callable=insert_all_files
-    #    )
+        task_insert_games = PythonOperator(
+              task_id="insert_in_postgres",
+              python_callable=insert_all_files
+        )
 
     with TaskGroup(group_id="gold_tg") as gold_tg:
 
@@ -516,8 +514,6 @@ with DAG(
             bash_command="cd /usr/local/airflow/dbt && dbt run"
         )
 
-    #bronze_tg >> 
-    #silver_tg >> 
-    gold_tg
+    bronze_tg >> silver_tg >> gold_tg
 
     #endregion
