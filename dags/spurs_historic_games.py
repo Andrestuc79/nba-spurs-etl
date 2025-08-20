@@ -17,7 +17,7 @@ import json
 import boto3 
 import os
 import time
-import pandas as pd
+#import pandas as pd
 import io
 import random
 

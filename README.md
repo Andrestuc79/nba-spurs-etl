@@ -24,7 +24,6 @@ Este proyecto implementa un pipeline completo de **Extracción, Carga y Transfor
    - DAG en Airflow que:
      - Utilizo múltiples librerías: 
          - Tenacity
-         - Pandas
          - Random
          - Boto3
          - Json
